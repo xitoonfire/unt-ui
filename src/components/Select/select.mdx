@@ -1,0 +1,107 @@
+import { Meta, Story } from "@storybook/addon-docs";
+import Select from "./Select";
+
+<Meta title="Components/Select" component={Select} />
+
+# Select Component Documentation
+
+## Overview
+
+The `Select` component provides a customizable dropdown menu for selecting a single value from a list of options. It allows for customization of size, variant, and handling of the selection state. This component can be used in forms or as a standalone element for gathering user input.
+
+## Basic Example
+
+```tsx
+import Select from './Select';
+
+function App() {
+  const options = [
+    { value: 'apple', label: 'Apple' },
+    { value: 'orange', label: 'Orange' },
+    { value: 'banana', label: 'Banana' },
+  ];
+
+  const [selectedValue, setSelectedValue] = useState('apple');
+
+  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedValue(event.target.value);
+  };
+
+  return (
+    <Select
+      id="fruit-select"
+      options={options}
+      value={selectedValue}
+      onChange={handleChange}
+    />
+  );
+}
+
+export default App;
+```
+
+In this example, the Select component is used to display a dropdown with three fruit options, and the selected value is tracked using the selectedValue state.
+
+## Select Properties
+
+The Select component accepts the following props:
+
+- `id` (string): The unique identifier for the select element (required).
+- `options` (SelectOption[]): An array of objects representing the options in the select dropdown, each with a value and label (required).
+- `value` (string): The current selected value (required).
+- `onChange` (function): A callback function triggered when the selection changes (required).
+- `size` ('small' | 'medium' | 'large'): The size of the select input. Default is 'medium'.
+- `variant` ('default' | 'outlined' | 'filled'): The style variant of the select input. Default is 'default'.
+- `disabled` (boolean): Whether the select is disabled. Defaults to false.
+
+## Example with Custom Size and Variant
+
+```tsx
+import Select from './Select';
+
+function App() {
+  const options = [
+    { value: 'red', label: 'Red' },
+    { value: 'green', label: 'Green' },
+    { value: 'blue', label: 'Blue' },
+  ];
+
+  const [selectedValue, setSelectedValue] = useState('red');
+
+  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedValue(event.target.value);
+  };
+
+  return (
+    <Select
+      id="color-select"
+      options={options}
+      value={selectedValue}
+      onChange={handleChange}
+      size="large"
+      variant="outlined"
+    />
+  );
+}
+
+export default App;
+```
+
+In this example, the Select component is used with a custom size of 'large' and a variant of 'outlined' for a more prominent dropdown style.
+
+## Customization
+
+The Select component can be customized in the following ways:
+
+- **size**: Choose from 'small', 'medium', or 'large' to adjust the padding and font size of the dropdown. The default size is 'medium'.
+- **variant**: Select between 'default', 'outlined', or 'filled' to change the appearance of the select input.
+  - `'default'` applies a simple border with focus styles.
+  - `'outlined'` applies a bold border and more focus styling.
+  - `'filled'` applies a background color with a border.
+- **disabled**: When set to true, the dropdown will be disabled and non-interactive. By default, this is set to false.
+
+# Notes
+
+The Select component automatically adjusts its appearance based on the size and variant props.
+The component supports disabled functionality to prevent user interaction when needed.
+The `onChange` handler allows easy integration with state management to track the selected value.

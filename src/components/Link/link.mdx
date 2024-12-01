@@ -1,0 +1,85 @@
+import { Meta, Story } from "@storybook/addon-docs";
+import Link from "./Link";
+
+<Meta title="Utility/Link" component={Link} />
+
+# Link Component Documentation
+
+## Overview
+
+The `Link` component is used to render anchor tags (`<a>`) with customizable properties. It supports both internal and external links, customizable text styling, and the option to add an underline effect.
+
+## Basic Example
+
+```tsx
+import Link from './Link';
+
+function App() {
+  return (
+    <div>
+      <Link href="https://www.example.com" text="Go to Example" />
+    </div>
+  );
+}
+
+export default App;
+```
+This example demonstrates the basic usage of the Link component where an external link is provided with the text "Go to Example."
+
+## Link Properties
+
+The Link component accepts the following props:
+
+- `href` (string): The URL the link points to (required).
+- `text` (string): The text content of the link (required).
+- `external` (boolean): If set to true, the link will open in a new tab (defaults to false).
+- `underline` (boolean): If set to true, the link text will be underlined (defaults to false).
+- `className` (string): Additional classes to apply custom styling to the link.
+
+## Example with Underline
+
+```tsx
+import Link from './Link';
+
+function App() {
+  return (
+    <div>
+      <Link href="https://www.example.com" text="Go to Example" underline={true} />
+    </div>
+  );
+}
+
+export default App;
+```
+In this example, the underline prop is set to true, causing the link text to be underlined.
+
+## Example with External Link
+
+```tsx
+import Link from './Link';
+
+function App() {
+  return (
+    <div>
+      <Link href="https://www.example.com" text="Go to Example" external={true} />
+    </div>
+  );
+}
+
+export default App;
+```
+In this example, the external prop is set to true, making the link open in a new tab.
+
+## Customization
+
+The Link component can be customized in the following ways:
+
+- `href`: The URL the link will point to (required).
+- `text`: The text displayed for the link (required).
+- `external`: Set to true to open the link in a new tab.
+- `underline`: Set to true to underline the link text.
+- `className`: Add custom Tailwind classes to style the link further.
+
+## Notes
+
+The Link component uses Tailwind CSS for easy styling customization. If the external prop is set to true, the link will have the target="_blank" attribute to open the link in a new tab. It also includes rel="noopener noreferrer" for security purposes. The underline prop allows you to toggle the underline style for the link text.

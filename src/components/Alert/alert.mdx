@@ -1,0 +1,71 @@
+import { Meta, Story } from "@storybook/addon-docs";
+import Alert from "./Alert";
+
+<Meta title="Feedback/Alert" component={Alert} />
+
+# Alert Component Documentation
+
+## Overview
+
+The `Alert` component is a simple and customizable alert box used to display messages to the user. It supports multiple types of alerts, such as success, error, warning, and info. The component can also be dismissible, allowing users to close the alert, and is built with TypeScript and Tailwind CSS for styling.
+
+## Basic Example
+
+```tsx
+import React, { useState } from "react";
+import Alert from "./Alert";
+
+function App() {
+  const [isAlertVisible, setAlertVisible] = useState(true);
+
+  const closeAlert = () => {
+    setAlertVisible(false);
+  };
+
+  return (
+    <div>
+      {isAlertVisible && (
+        <Alert type="success" dismissible onClose={closeAlert}>
+          This is a success message!
+        </Alert>
+      )}
+      {isAlertVisible && (
+        <Alert type="error" dismissible onClose={closeAlert}>
+          This is an error message!
+        </Alert>
+      )}
+    </div>
+  );
+}
+
+export default App;
+```
+
+## Alert Types
+
+The Alert component supports the following types, which define the appearance and color scheme of the alert:
+
+- Success: A green alert indicating success.
+- Error: A red alert indicating an error.
+- Warning: A yellow alert indicating a warning.
+- Info: A blue alert for general information.
+
+```tsx
+<Alert type="success">Success alert message</Alert>
+<Alert type="error">Error alert message</Alert>
+<Alert type="warning">Warning alert message</Alert>
+<Alert type="info">Info alert message</Alert>
+```
+
+## Dismissible Alerts
+
+The Alert component can be made dismissible by setting the dismissible prop to true. When dismissible, a close button (&times;) will appear, allowing the user to close the alert.
+
+```tsx
+<Alert type="success" dismissible onClose={() => console.log("Alert closed")}>
+  Dismissible success alert
+</Alert>
+<Alert type="error" dismissible onClose={() => console.log("Alert closed")}>
+  Dismissible error alert
+</Alert>
+```

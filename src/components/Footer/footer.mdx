@@ -1,0 +1,82 @@
+import { Meta, Story } from "@storybook/addon-docs";
+import Footer from "./Footer";
+
+<Meta title="Footer/Footer" component={Footer} />
+
+# Footer Component Documentation
+
+## Overview
+
+The `Footer` component provides a customizable footer for your application. It allows you to display links, social media icons, and a copyright message. This component is designed to be responsive and flexible, adapting to different screen sizes and layouts.
+
+## Basic Example
+
+```tsx
+import Footer from './Footer';
+
+function App() {
+  const footerLinks = [
+    { name: 'Home', href: '/' },
+    { name: 'About', href: '/about' },
+    { name: 'Contact', href: '/contact' },
+  ];
+
+  const socialLinks = [
+    { name: 'Facebook', icon: <FaFacebook />, href: 'https://facebook.com' },
+    { name: 'Twitter', icon: <FaTwitter />, href: 'https://twitter.com' },
+  ];
+
+  return (
+    <Footer
+      links={footerLinks}
+      socialMedia={socialLinks}
+      copyright="My Company"
+    />
+  );
+}
+
+export default App;
+```
+In this example, the `Footer` component displays navigation links, social media icons, and a copyright notice. The social media links use icons from a third-party library (such as Font Awesome).
+
+## Footer Properties
+
+The `Footer` component accepts the following props:
+
+- `links`: An array of objects, each containing a name and href for the link.
+- `socialMedia`: An optional array of objects, each containing a name, icon, and href for the social media link. This can be used to display icons linked to social media platforms.
+- `copyright`: An optional string to display a copyright notice at the bottom of the footer.
+- `className`: An optional custom class name to style the footer.
+
+```tsx
+const footerLinks = [
+  { name: 'Home', href: '/' },
+  { name: 'About', href: '/about' },
+];
+
+const socialLinks = [
+  { name: 'Instagram', icon: <FaInstagram />, href: 'https://instagram.com' },
+];
+
+<Footer
+  links={footerLinks}
+  socialMedia={socialLinks}
+  copyright="My Company"
+  className="custom-class"
+/>
+```
+
+## Customization
+
+You can customize the appearance and behavior of the footer using the following props:
+
+- `links` lets you define the navigation links to be displayed.
+- `socialMedia` allows you to provide social media icons along with the corresponding URLs.
+- `copyright` enables the display of a copyright message.
+- `className` allows you to apply additional CSS classes to the footer for further customization.
+
+## Notes
+
+- The `socialMedia` prop is optional. If not provided, the footer will only display the navigation links.
+- The copyright message will display the current year along with the provided text.
+- The component is responsive, with a layout that adapts from a column layout on smaller screens to a row layout on larger screens.

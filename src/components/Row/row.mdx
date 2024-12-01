@@ -1,0 +1,74 @@
+import { Meta, Story } from "@storybook/addon-docs";
+import Row from "./Row";
+
+<Meta title="Layout/Row" component={Row} />
+
+# Row Component Documentation
+
+## Overview
+
+The `Row` component is a layout component used to create a row-based container for aligning and spacing children elements. It provides flexibility in controlling the gap between items, vertical alignment, and horizontal alignment using Tailwind CSS utility classes.
+
+## Basic Example
+
+```tsx
+import Row from './Row';
+
+function App() {
+  return (
+    <Row gap="medium" alignItems="center" justifyContent="between">
+      <div>Item 1</div>
+      <div>Item 2</div>
+      <div>Item 3</div>
+    </Row>
+  );
+}
+
+export default App;
+```
+
+In this example, the Row component arranges three items in a row, with medium spacing between them, vertically aligned in the center, and the items spaced between horizontally.
+
+## Row Properties
+
+The Row component accepts the following props:
+
+- **children** (`ReactNode`): The content to be placed inside the row (required).
+- **gap** (`'none' | 'small' | 'medium' | 'large'`): Specifies the gap between the items in the row. Default is 'medium'.
+- **alignItems** (`'start' | 'center' | 'end'`): Controls the vertical alignment of items within the row. Default is 'start'.
+- **justifyContent** (`'start' | 'center' | 'end' | 'between' | 'around'`): Specifies how the items are distributed horizontally within the row. Default is 'start'.
+
+## Example with Different Gap and Alignment
+
+```tsx
+import Row from './Row';
+
+function App() {
+  return (
+    <Row gap="large" alignItems="end" justifyContent="around">
+      <div>Item 1</div>
+      <div>Item 2</div>
+      <div>Item 3</div>
+    </Row>
+  );
+}
+
+export default App;
+```
+
+In this example, the Row component arranges the items with large gaps between them, aligned at the bottom vertically, and distributed evenly around the row horizontally.
+
+## Customization
+
+The Row component can be customized in the following ways:
+
+- **gap**: Control the spacing between child elements with values 'none', 'small', 'medium', or 'large'. The default is 'medium'.
+- **alignItems**: Adjust the vertical alignment of the children with values 'start', 'center', or 'end'. The default is 'start'.
+- **justifyContent**: Manage the horizontal alignment of the children with options like 'start', 'center', 'end', 'between', or 'around'. The default is 'start'.
+
+## Notes
+
+- The Row component uses Tailwind CSS classes to handle the layout styles, ensuring responsiveness and flexibility.
+- The default gap is 'medium', which provides a reasonable space between items.
+- The alignItems and justifyContent properties provide simple control over vertical and horizontal alignment.
+

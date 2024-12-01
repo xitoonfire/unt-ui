@@ -1,0 +1,108 @@
+import { Meta, Story } from "@storybook/addon-docs";
+import Input from "./Input";
+
+<Meta title="Components/Input" component={Input} />
+
+# Input Component Documentation
+
+## Overview
+
+The `Input` component provides a customizable input field for text, numbers, or other types of data. It supports additional features such as validation for required fields and styling for focus and error states.
+
+## Basic Example
+
+```tsx
+import Input from './Input';
+
+function App() {
+  return (
+    <div>
+      <Input
+        type="text"
+        value="Sample Text"
+        onChange={(e) => console.log(e.target.value)}
+      />
+    </div>
+  );
+}
+
+export default App;
+```
+This example demonstrates the usage of the Input component with a text input type, where a value is provided and changes are logged on each update.
+
+## Input Properties
+
+The Input component accepts the following props:
+
+- **type** (string): Specifies the type of the input (e.g., text, number, date, etc.). Default is 'text'.
+- **isRequired** (boolean): If set to true, the input will be marked as required. This will also apply a red border to indicate the required field.
+- **className** (string): Custom classes to apply additional styling to the input field.
+- **value** (string | number): The current value of the input field.
+- **onChange** (function): The function to handle changes to the input value.
+- **placeholder** (string): Placeholder text displayed inside the input field.
+- **disabled** (boolean): If set to true, the input will be disabled, preventing interaction.
+- **readonly** (boolean): If set to true, the input will be in a read-only state.
+- **required** (boolean): Marks the input as required (overrides the isRequired prop).
+
+## Example with Required Field
+
+```tsx
+import Input from './Input';
+
+function App() {
+  return (
+    <div>
+      <Input
+        type="text"
+        isRequired={true}
+        value="Sample Text"
+        onChange={(e) => console.log(e.target.value)}
+      />
+    </div>
+  );
+}
+
+export default App;
+```
+In this example, the Input component is used with the isRequired prop set to true, which applies a red border to indicate the field is required.
+
+## Example with Number Input
+
+```tsx
+import Input from './Input';
+
+function App() {
+  return (
+    <div>
+      <Input
+        type="number"
+        value={10}
+        onChange={(e) => console.log(e.target.value)}
+      />
+    </div>
+  );
+}
+
+export default App;
+```
+In this example, the Input component is used with the number input type.
+
+## Customization
+
+The Input component can be customized in the following ways:
+
+- **type**: Set the input type (e.g., text, number, date, etc.).
+- **isRequired**: Adds a red border to indicate the field is required and marks it as required.
+- **className**: Allows custom styling using Tailwind classes.
+- **value**: The input's value, which can be a string or number.
+- **onChange**: Handles input value changes.
+- **placeholder**: Sets a placeholder for the input field.
+- **disabled**: If true, disables the input.
+- **readonly**: Makes the input read-only.
+- **required**: This is used to mark the input as required.
+
+## Notes
+
+- The Input component uses Tailwind CSS for easy customization of styles.
+- The red border appears when the input field is required, providing visual feedback to the user.
+- The component automatically supports standard HTML input attributes, such as value, onChange, disabled, and readonly.

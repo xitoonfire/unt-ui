@@ -1,0 +1,64 @@
+import { Meta, Story } from "@storybook/addon-docs";
+import Column from "./Column";
+
+<Meta title="Layout/Column" component={Column} />
+
+# Column Component Documentation
+
+## Overview
+
+The `Column` component is a flexible container used to arrange its children in a vertical stack (column) layout. It provides options to control the spacing between items, the alignment of items, and the justification of items within the column. It uses Tailwind CSS classes to manage layout behavior.
+
+## Basic Example
+
+```tsx
+import Column from './Column';
+
+function App() {
+  return (
+    <Column gap="medium" alignItems="center" justifyContent="center">
+      <div>Item 1</div>
+      <div>Item 2</div>
+      <div>Item 3</div>
+    </Column>
+  );
+}
+
+export default App;
+```
+
+In this example, the Column component arranges the items vertically with medium gaps, centered alignment, and centered justification.
+
+## Column Properties
+
+The Column component accepts the following props:
+
+- **children**: The content or elements to be arranged within the column (required).
+- **gap**: Defines the space between child elements. It can be one of the following:
+  - `'none'` - No gap.
+  - `'small'` - Small gap (2 units).
+  - `'medium'` - Medium gap (4 units).
+  - `'large'` - Large gap (6 units).
+  - Default value: `'medium'`.
+- **alignItems**: Controls the vertical alignment of the items within the column. Possible values:
+  - `'start'` - Align items at the start (top).
+  - `'center'` - Align items at the center.
+  - `'end'` - Align items at the end (bottom).
+  - Default value: `'start'`.
+- **justifyContent**: Defines how the items are spaced and aligned along the main axis. Possible values:
+  - `'start'` - Items align at the start (top).
+  - `'center'` - Items align at the center.
+  - `'end'` - Items align at the end (bottom).
+  - `'between'` - Items are spaced evenly with the first item at the start and the last item at the end.
+  - `'around'` - Items are spaced evenly with equal space around each item.
+  - Default value: `'start'`.
+
+```tsx
+<Column gap="large" alignItems="center" justifyContent="between">
+  <div>Item 1</div>
+  <div>Item 2</div>
+  <div>Item 3</div>
+</Column>
+```
+
+In this example, the column has large gaps between items, the items are aligned in the center, and the items are justified with space between them.

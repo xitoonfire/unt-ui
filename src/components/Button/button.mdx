@@ -1,0 +1,76 @@
+import { Meta, Story } from "@storybook/addon-docs";
+import Button from "./Button";
+
+<Meta title="Components/Button" component={Button} />
+
+# Button Component Documentation
+
+## Overview
+
+The `Button` component is a flexible and customizable button used to trigger actions within your application. It allows various styling options through props like `variant`, `size`, and `shape`. The component supports multiple button states, including a disabled state, and is built with TypeScript and Tailwind CSS for styling.
+
+
+
+## Basic Example
+
+```tsx
+import React from "react";
+import Button from "./Button";
+
+function App() {
+  const handleClick = () => {
+    alert("Button clicked!");
+  };
+
+  return (
+    <div>
+      <Button label="Primary Button" onClick={handleClick} />
+      <Button label="Success Button" variant="success" onClick={handleClick} />
+      <Button label="Disabled Button" variant="danger" disabled onClick={handleClick} />
+    </div>
+  );
+}
+
+export default App;
+```
+
+## Button Variants
+
+The Button component supports various variants, which define the button's color and style. The available variants are:
+
+- **Primary:** A standard button (default style).
+- **Success:** A green button indicating success.
+- **Danger:** A red button indicating danger.
+- **Warning:** A yellow button for warnings.
+- **Secondary:** A gray button for secondary actions.
+- **Link:** A text-based button styled like a link.
+
+```tsx
+<Button label="Primary" variant="primary" onClick={handleClick} />
+<Button label="Success" variant="success" onClick={handleClick} />
+<Button label="Danger" variant="danger" onClick={handleClick} />
+<Button label="Warning" variant="warning" onClick={handleClick} />
+<Button label="Link" variant="link" onClick={handleClick} />
+```
+
+## Button Sizes
+
+The Button component also supports different sizes for the button. The available sizes are:
+
+- **Small:** A smaller button.
+- **Medium:** A medium-sized button (default size).
+- **Large:** A larger button.
+
+```tsx
+<Button label="Small Button" size="small" onClick={handleClick} />
+<Button label="Medium Button" size="medium" onClick={handleClick} />
+<Button label="Large Button" size="large" onClick={handleClick} />
+```
+
+## Disabled State
+
+The Button component can be disabled by setting the disabled prop to true. When disabled, the button will have reduced opacity and prevent any click events.
+
+```tsx
+<Button label="Disabled Button" disabled onClick={handleClick} />
+```

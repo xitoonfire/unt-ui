@@ -1,0 +1,82 @@
+import { Meta, Story } from "@storybook/addon-docs";
+import Grid from "./Grid";
+
+<Meta title="Layout/Grid" component={Grid} />
+
+# Grid Component Documentation
+
+## Overview
+
+The `Grid` component provides a flexible and customizable grid layout system. It allows you to define the number of columns, the gap between items, and make the grid responsive based on different screen sizes. The grid is built using Tailwind CSS's grid utilities for easy customization.
+
+## Basic Example
+
+```tsx
+import Grid from './Grid';
+
+function App() {
+  return (
+    <Grid columns={3} gap="medium">
+      <div className="bg-blue-500 p-4">Item 1</div>
+      <div className="bg-blue-500 p-4">Item 2</div>
+      <div className="bg-blue-500 p-4">Item 3</div>
+      <div className="bg-blue-500 p-4">Item 4</div>
+    </Grid>
+  );
+}
+
+export default App;
+```
+
+In this example, the Grid component creates a grid with 3 columns and a medium gap between items.
+
+## Grid Properties
+
+The Grid component accepts the following props:
+
+- **children**: The content to be displayed inside the grid.
+- **columns**: Specifies the number of columns in the grid. This can be any number from 1 to 12. Default is 3.
+- **gap**: Defines the spacing between grid items. The available values are:
+  - `'none'` for no gap.
+  - `'small'` for a small gap.
+  - `'medium'` for a medium gap.
+  - `'large'` for a large gap.
+- **responsive**: If set to true, the grid becomes responsive, adjusting the number of columns at different breakpoints. Default is false.
+- **className**: Allows additional custom classes to be applied to the grid container.
+
+## Example with Responsive Grid
+
+```tsx
+import Grid from './Grid';
+
+function App() {
+  return (
+    <Grid columns={4} responsive>
+      <div className="bg-blue-500 p-4">Item 1</div>
+      <div className="bg-blue-500 p-4">Item 2</div>
+      <div className="bg-blue-500 p-4">Item 3</div>
+      <div className="bg-blue-500 p-4">Item 4</div>
+      <div className="bg-blue-500 p-4">Item 5</div>
+    </Grid>
+  );
+}
+
+export default App;
+```
+
+In this example, the Grid component uses 4 columns by default, and it becomes responsive based on the screen size. On small screens, it will show 2 columns, on medium screens 3 columns, and on large screens 4 columns.
+
+## Customization
+
+You can customize the appearance and behavior of the grid using the following props:
+
+- **columns**: Adjust the number of columns in the grid (default is 3).
+- **gap**: Control the spacing between grid items. Choose from `'none'`, `'small'`, `'medium'`, or `'large'`.
+- **responsive**: Set to true to make the grid responsive across different screen sizes.
+- **className**: Add additional CSS classes for further customization.
+
+## Notes
+
+- The responsive prop, when set to true, ensures the grid adjusts based on the screen size.
+- Tailwind CSS grid utilities are used for layout, making the grid highly flexible and responsive.
+- You can pass any valid Tailwind classes via the className prop for additional styling.

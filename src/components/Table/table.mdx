@@ -1,0 +1,113 @@
+import { Meta, Story } from "@storybook/addon-docs";
+import Table from "./Table";
+
+<Meta title="Components/Table" component={Table} />
+
+# Table Component Documentation
+
+## Overview
+
+The `Table` component provides a flexible and customizable table that can display rows of data with a set of defined columns. It supports an optional delete feature, which allows removing rows dynamically. This component is useful for displaying data in a structured, tabular format and can be customized with column width and delete functionality.
+
+## Basic Example
+
+```tsx
+import Table from './Table';
+
+function App() {
+  const columns = [
+    { header: 'Name', accessor: 'name' },
+    { header: 'Age', accessor: 'age' },
+  ];
+
+  const data = [
+    { name: 'John Doe', age: 30 },
+    { name: 'Jane Smith', age: 25 },
+  ];
+
+  return <Table columns={columns} data={data} />;
+}
+
+export default App;
+```
+In this example, the Table component is used to display two columns: Name and Age. The table is populated with two rows of data.
+
+## Table Properties
+
+The Table component accepts the following props:
+
+- **columns** (`Column[]`): An array of objects that define the columns of the table. Each column must have a header (`string`) for the column's header and an accessor (`string`) to reference the key in the data rows.
+- **data** (`Record<string, any>[]`): An array of objects representing the rows of data to display in the table. Each object should have keys that correspond to the column accessor values.
+- **allowDelete** (`boolean`): A flag to enable or disable the delete button in the last column of each row. Defaults to true.
+
+### Column Object
+
+Each object in the columns array should have:
+
+- **header** (`string`): The title or name of the column displayed in the table header.
+- **accessor** (`string`): The key in each row object that corresponds to the value shown in the cell of that column.
+- **width** (`string`, optional): The width of the column, which can be specified as a string (e.g., '100px', '20%'). If not provided, the width defaults to 'auto'.
+
+## Example with Delete Feature Disabled
+
+```tsx
+import Table from './Table';
+
+function App() {
+  const columns = [
+    { header: 'Product', accessor: 'product' },
+    { header: 'Price', accessor: 'price' },
+  ];
+
+  const data = [
+    { product: 'Laptop', price: '$1000' },
+    { product: 'Phone', price: '$500' },
+  ];
+
+  return <Table columns={columns} data={data} allowDelete={false} />;
+}
+
+export default App;
+```
+In this example, the delete functionality is disabled by setting the allowDelete prop to false, meaning no delete buttons will be shown in the table.
+
+# Customization
+
+## columns
+The columns prop defines the structure of your table. You can customize each column's header and the data it should display using the accessor property.
+
+## allowDelete
+If you don't want to allow row deletion, set allowDelete to false.
+
+## width
+You can set the width of each column by passing a width property in the columns array. For example, `{ header: 'Age', accessor: 'age', width: '150px' }`.
+
+# Styling
+The Table component uses Tailwind CSS utility classes for styling. The table is responsive and will adapt based on its content and the width of its container. The allowDelete prop adds a delete button in the last column of each row, which uses the red color theme for visual emphasis.
+
+# Example with Custom Column Width
+```tsx
+import Table from './Table';
+
+function App() {
+  const columns = [
+    { header: 'Product', accessor: 'product', width: '200px' },
+    { header: 'Price', accessor: 'price', width: '100px' },
+  ];
+
+  const data = [
+    { product: 'Laptop', price: '$1000' },
+    { product: 'Phone', price: '$500' },
+  ];
+
+  return <Table columns={columns} data={data} />;
+}
+
+export default App;
+```
+This example demonstrates how you can set custom column widths for better table control and presentation.
+
+# Notes
+- The Table component provides basic row deletion functionality. When `allowDelete` is set to true, each row will have a delete button (represented by a red ❌ icon).
+- If the `allowDelete` prop is set to false, the delete button will be hidden, and no row deletion functionality will be available.
+- The `tableData` state is updated whenever a row is deleted, ensuring the table reflects the changes.

@@ -1,0 +1,87 @@
+import { Meta, Story } from "@storybook/addon-docs";
+import List from "./List";
+
+<Meta title="Utility/List" component={List} />
+
+# List Component Documentation
+
+## Overview
+
+The `List` component is used to render ordered or unordered lists. You can provide a list of items, specify whether the list should be ordered or unordered, and customize the styles for the list and individual items.
+
+## Basic Example
+
+```tsx
+import List from './List';
+
+function App() {
+  const items = ['Item 1', 'Item 2', 'Item 3'];
+  return (
+    <div>
+      <List items={items} />
+    </div>
+  );
+}
+
+export default App;
+```
+This example demonstrates the basic usage of the List component where an unordered list is rendered with the items provided.
+
+## List Properties
+
+The List component accepts the following props:
+
+- **items** (`string[]`): An array of strings representing the list items (required).
+- **type** (`'ordered' | 'unordered'`): The type of the list. It can be either ordered or unordered. Defaults to unordered.
+- **className** (`string`): Custom class names to apply to the entire list element.
+- **itemClassName** (`string`): Custom class names to apply to each list item.
+
+## Example with Ordered List
+
+```tsx
+import List from './List';
+
+function App() {
+  const items = ['First Item', 'Second Item', 'Third Item'];
+  return (
+    <div>
+      <List items={items} type="ordered" />
+    </div>
+  );
+}
+
+export default App;
+```
+In this example, the type prop is set to ordered, which renders an ordered list (`<ol>`).
+
+## Example with Custom Item Styles
+
+```tsx
+import List from './List';
+
+function App() {
+  const items = ['First Item', 'Second Item', 'Third Item'];
+  return (
+    <div>
+      <List items={items} itemClassName="text-red-500" />
+    </div>
+  );
+}
+
+export default App;
+```
+In this example, the itemClassName prop is used to apply custom styles to each list item, in this case, the text color is set to red.
+
+## Customization
+
+The List component can be customized in the following ways:
+
+- **items**: A required array of strings that defines the list items.
+- **type**: Choose between an ordered or unordered list. Defaults to unordered.
+- **className**: Add custom Tailwind classes to style the entire list.
+- **itemClassName**: Add custom Tailwind classes to style individual list items.
+
+## Notes
+
+> The component uses Tailwind CSS to style the list and list items. You can further customize the styles using the className and itemClassName props.  
+> The type prop determines whether the list is ordered (`<ol>`) or unordered (`<ul>`), and applies the appropriate CSS class for list bullets or numbering.

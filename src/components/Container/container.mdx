@@ -1,0 +1,54 @@
+import { Meta, Story } from "@storybook/addon-docs";
+import Container from "./Container";
+
+<Meta title="Layout/Container" component={Container} />
+
+# Container Component Documentation
+
+## Overview
+
+The `Container` component is a flexible wrapper that allows you to constrain the width of its content while providing options to center the content, apply padding, and display boundaries around the container. It's designed to help you build responsive layouts that adapt to various screen sizes.
+
+## Basic Example
+
+```tsx
+import Container from "./Container";
+
+function App() {
+  return (
+    <Container maxWidth="lg" center padding showBoundary>
+      <div>Your content goes here</div>
+    </Container>
+  );
+}
+
+export default App;
+```
+
+In this example, the Container component limits the content to a maximum width of lg, centers the content, applies padding, and shows a boundary around the container.
+
+## Container Properties
+
+The Container component accepts the following props:
+
+- **children**: The content or elements to be wrapped inside the container (required).
+- **maxWidth**: Defines the maximum width of the container. Possible values:
+  - `'sm'` - Small width.
+  - `'md'` - Medium width.
+  - `'lg'` - Large width.
+  - `'xl'` - Extra large width.
+  - `'2xl'` - Double extra large width.
+  - Default value: `'xl'`.
+- **center**: If true, the content inside the container is centered horizontally. Default value: false.
+- **padding**: If true, padding is applied to the left and right of the container. This ensures the content does not touch the edges. Default value: true.
+- **showBoundary**: If true, a border and background color are applied to the container, creating a visible boundary around the content. Default value: false.
+
+## Example Usage
+
+```tsx
+<Container maxWidth="2xl" center={true} padding={false} showBoundary={true}>
+  <div>This container has a boundary, no padding, and is centered.</div>
+</Container>
+```
+
+In this example, the container has a maximum width of 2xl, is centered, has no padding, and shows a boundary around it.

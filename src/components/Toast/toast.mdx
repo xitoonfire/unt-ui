@@ -1,0 +1,111 @@
+import { Meta, Story } from "@storybook/addon-docs";
+import Toast from "./Toast";
+
+<Meta title="Feedback/Toast" component={Toast} />
+
+# Toast Component Documentation
+
+## Overview
+
+The `Toast` component is used to display temporary messages or notifications, typically for success, error, warning, or informational purposes. It automatically disappears after a set duration, but can also be manually closed using the close button. This component is ideal for showing non-intrusive alerts in a user interface.
+
+## Basic Example
+
+```tsx
+import Toast from './Toast';
+
+function App() {
+  const [showToast, setShowToast] = React.useState(false);
+
+  const handleClose = () => {
+    setShowToast(false);
+  };
+
+  return (
+    <div>
+      {showToast && <Toast message="This is an info message" onClose={handleClose} />}
+      <button onClick={() => setShowToast(true)}>Show Toast</button>
+    </div>
+  );
+}
+
+export default App;
+```
+In this example, the Toast component is shown when the button is clicked, and the toast message can be closed by clicking the close button.
+
+## Toast Properties
+
+The Toast component accepts the following props:
+
+- `message` (string): The message to display in the toast.
+- `type` ('success' | 'error' | 'warning' | 'info', optional): The type of toast. This affects the background and text color. Defaults to 'info'.
+- `duration` (number, optional): The time in milliseconds for which the toast will be displayed before it automatically disappears. Defaults to 3000 milliseconds (3 seconds).
+- `onClose` (function, optional): A callback function that is triggered when the toast is closed, either automatically after the duration or when the close button is clicked.
+
+## Example with Different Types
+
+```tsx
+import Toast from './Toast';
+
+function App() {
+  const [showToast, setShowToast] = React.useState(true);
+
+  const handleClose = () => {
+    setShowToast(false);
+  };
+
+  return (
+    <div>
+      {showToast && <Toast message="Success message!" type="success" onClose={handleClose} />}
+      <Toast message="Error message!" type="error" onClose={handleClose} />
+      <Toast message="Warning message!" type="warning" onClose={handleClose} />
+      <Toast message="Info message!" type="info" onClose={handleClose} />
+    </div>
+  );
+}
+
+export default App;
+```
+This example demonstrates how to display toasts with different types: success, error, warning, and info.
+
+# Example with Custom Duration
+
+```tsx
+import Toast from './Toast';
+
+function App() {
+  const [showToast, setShowToast] = React.useState(true);
+
+  const handleClose = () => {
+    setShowToast(false);
+  };
+
+  return (
+    <div>
+      <Toast message="This message will disappear after 5 seconds" duration={5000} onClose={handleClose} />
+    </div>
+  );
+}
+
+export default App;
+```
+
+In this example, the toast will automatically disappear after 5 seconds, as specified by the duration prop.
+
+## Custom Styling
+
+The Toast component uses Tailwind CSS classes for styling. You can override or extend the default styles by passing a custom `className` prop.
+
+For example:
+
+```tsx
+<Toast message="Custom styled toast!" className="text-purple-700 bg-purple-100" onClose={handleClose} />
+```
+
+This example applies a custom text and background color to the toast.
+
+## Notes
+
+- **Type**: The `type` prop determines the style of the toast. You can choose from the following types: success, error, warning, or info. Each type has a corresponding color scheme.
+- **Duration**: The `duration` prop controls how long the toast is displayed before it disappears. If the duration is not specified, the toast will stay visible for 3 seconds by default.
+- **Close**: The toast can be closed manually by clicking the close (×) button, or it will automatically close after the specified duration.

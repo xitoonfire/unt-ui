@@ -1,0 +1,104 @@
+import { Meta, Story } from "@storybook/addon-docs";
+import RadioButtonGroup from "./Groupedradiobutton";
+
+<Meta title="Components/RadioButtonGroup" component={RadioButtonGroup} />
+
+# RadioButtonGroup Component Documentation
+
+## Overview
+
+The `RadioButtonGroup` component is used to group multiple `RadioButton` components together. It allows the user to select a single option from a list of radio buttons. The component handles the selection logic and passes the selected value to the parent component via the `onChange` handler.
+
+## Basic Example
+
+```tsx
+import RadioButtonGroup from './RadioButtonGroup';
+import { useState } from 'react';
+
+function App() {
+  const [selectedValue, setSelectedValue] = useState('');
+
+  const handleChange = (value: string) => {
+    setSelectedValue(value);
+  };
+
+  const options = [
+    { id: 'option1', label: 'Option 1', value: 'option1', checked: selectedValue === 'option1' },
+    { id: 'option2', label: 'Option 2', value: 'option2', checked: selectedValue === 'option2' },
+    { id: 'option3', label: 'Option 3', value: 'option3', checked: selectedValue === 'option3' },
+  ];
+
+  return (
+    <div>
+      <RadioButtonGroup name="example" options={options} onChange={handleChange} />
+    </div>
+  );
+}
+
+export default App;
+```
+
+In this example, the `RadioButtonGroup` component is used with an array of options. The `selectedValue` state controls which radio button is selected.
+
+## RadioButtonGroup Properties
+
+The `RadioButtonGroup` component accepts the following props:
+
+- `name` (string): The name for the group of radio buttons. All radio buttons in the group must have the same name (required).
+- `options` (array): An array of objects representing the individual radio buttons. Each object should contain:
+  - `id` (string): A unique identifier for the radio button (required).
+  - `label` (string): The label text displayed next to the radio button (required).
+  - `value` (string): The value that will be sent when the radio button is selected (required).
+  - `checked` (boolean): A boolean indicating whether the radio button is selected (required).
+  - `disabled` (boolean): Optionally, disable the radio button (optional).
+- `onChange` (function): A callback function triggered when a radio button is selected. It receives the selected value as an argument (required).
+
+## Example with Disabled RadioButton
+
+```tsx
+import RadioButtonGroup from './RadioButtonGroup';
+import { useState } from 'react';
+
+function App() {
+  const [selectedValue, setSelectedValue] = useState('');
+
+  const handleChange = (value: string) => {
+    setSelectedValue(value);
+  };
+
+  const options = [
+    { id: 'option1', label: 'Option 1', value: 'option1', checked: selectedValue === 'option1' },
+    { id: 'option2', label: 'Option 2', value: 'option2', checked: selectedValue === 'option2', disabled: true },
+    { id: 'option3', label: 'Option 3', value: 'option3', checked: selectedValue === 'option3' },
+  ];
+
+  return (
+    <div>
+      <RadioButtonGroup name="example" options={options} onChange={handleChange} />
+    </div>
+  );
+}
+
+export default App;
+```
+
+In this example, the second radio button (Option 2) is disabled, preventing it from being selected.
+
+# Customization
+
+The RadioButtonGroup component can be customized in the following ways:
+
+- **name**: Use a unique name to group the radio buttons. All radio buttons in the group will share the same name, allowing only one selection at a time.
+- **options**: Provide an array of objects representing the individual radio buttons. Each object can have the following properties:
+  - **id**: A unique ID for each radio button.
+  - **label**: The label text displayed next to the radio button.
+  - **value**: The value that will be selected when the radio button is checked.
+  - **checked**: A boolean indicating whether the radio button is selected.
+  - **disabled**: Optionally disable the radio button.
+  - **onChange**: Pass a function that handles the value change when a radio button is selected.
+
+## Notes
+
+- The RadioButtonGroup component relies on the RadioButton component for each individual button in the group.
+- Only one radio button in a group can be selected at a time, as determined by the shared name prop.
+- The `onChange` function receives the selected value when a radio button is selected, allowing the parent component to update its state accordingly.

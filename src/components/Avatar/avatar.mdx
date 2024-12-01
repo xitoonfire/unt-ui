@@ -1,0 +1,83 @@
+import { Meta, Story } from "@storybook/addon-docs";
+import Avatar from "./Avatar";
+
+<Meta title="Utility/Avatar" component={Avatar} />
+
+# Avatar Component Documentation
+
+## Overview
+
+The `Avatar` component is a customizable and flexible component used to display user profile images or initials. It supports various sizes and shapes, including circles and squares, and can display an image or initials. The component is built with TypeScript and uses Tailwind CSS for styling.
+
+
+## Basic Example
+
+```tsx
+import React from "react";
+import Avatar from "./Avatar";
+
+function App() {
+  return (
+    <div>
+      <Avatar src="https://randomuser.me/api/portraits/women/1.jpg" alt="User Avatar" />
+      <Avatar initials="AB" size="large" shape="square" bgColor="#4CAF50" />
+      <Avatar initials="CD" size="small" bgColor="#FF5722" />
+    </div>
+  );
+}
+
+export default App;
+```
+
+## Avatar Sizes
+
+The Avatar component supports different sizes to adjust the avatar's display. The available sizes are:
+
+- Small: A small avatar.
+- Medium: A medium-sized avatar (default size).
+- Large: A larger avatar.
+
+```tsx
+<Avatar src="https://randomuser.me/api/portraits/men/1.jpg" size="small" alt="User Avatar" />
+<Avatar src="https://randomuser.me/api/portraits/men/2.jpg" size="medium" alt="User Avatar" />
+<Avatar src="https://randomuser.me/api/portraits/men/3.jpg" size="large" alt="User Avatar" />
+```
+
+## Avatar Shapes
+
+The Avatar component can have different shapes. The available shapes are:
+
+- Circle: A round avatar (default shape).
+- Square: A square avatar.
+
+```tsx
+<Avatar src="https://randomuser.me/api/portraits/men/1.jpg" shape="circle" alt="User Avatar" />
+<Avatar src="https://randomuser.me/api/portraits/men/2.jpg" shape="square" alt="User Avatar" />
+```
+
+## Avatar with Initials
+
+If no image is provided, the Avatar component will display initials inside the avatar.
+
+```tsx
+<Avatar initials="AB" size="medium" />
+<Avatar initials="CD" size="large" shape="square" bgColor="#4CAF50" />
+```
+
+## Avatar with Custom Background Color
+
+You can set a custom background color for the avatar by passing a valid CSS color to the bgColor prop.
+
+```tsx
+<Avatar initials="XY" size="small" bgColor="#FF5722" />
+<Avatar src="https://randomuser.me/api/portraits/women/1.jpg" size="medium" alt="User Avatar" />
+```
+
+## Avatar with Image
+
+If the src prop is provided, the component will display the image inside the avatar; otherwise, it will display the initials.
+
+```tsx
+<Avatar src="https://randomuser.me/api/portraits/men/1.jpg" alt="User Avatar" />
+<Avatar src="https://randomuser.me/api/portraits/men/2.jpg" alt="User Avatar" shape="square" size="large" />
+```

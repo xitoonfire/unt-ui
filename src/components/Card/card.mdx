@@ -1,0 +1,71 @@
+import { Meta, Story } from "@storybook/addon-docs";
+import Card from "./Card";
+
+<Meta title="Components/Card" component={Card} />
+
+# Card Component Documentation
+
+## Overview
+
+The `Card` component is a flexible and customizable card used to display content such as images, titles, descriptions, and action buttons. It provides a simple way to present content in a visually appealing layout. The component is built with TypeScript and Tailwind CSS for styling.
+
+## Basic Example
+
+```tsx
+import React from "react";
+import Card from "./Card";
+
+function App() {
+  const handleButtonClick = () => {
+    alert("Button clicked!");
+  };
+
+  return (
+    <div>
+      <Card
+        title="Card Title"
+        imageUrl="https://via.placeholder.com/150"
+        content="This is a description of the card's content."
+        buttonText="Learn More"
+        onButtonClick={handleButtonClick}
+      />
+    </div>
+  );
+}
+
+export default App;
+```
+
+## Card Properties
+
+The Card component accepts the following props:
+
+- `title`: A string representing the card's title (e.g., "Card Title").
+- `imageUrl`: A string representing the URL of the image to be displayed in the card.
+- `content`: A string representing the main content or description of the card.
+- `buttonText`: A string for the text to be displayed on the action button.
+- `onButtonClick`: A function that will be called when the action button is clicked.
+
+```tsx
+<Card
+  title="Card Title"
+  imageUrl="https://via.placeholder.com/150"
+  content="This is a description of the card."
+  buttonText="Click Me"
+  onButtonClick={() => console.log("Button clicked!")}
+/>
+```
+
+## Button Functionality
+
+The card includes an action button that can trigger a custom action when clicked. The `onButtonClick` prop accepts a function that will be executed when the button is clicked.
+
+```tsx
+<Card
+  title="Card with Button"
+  imageUrl="https://via.placeholder.com/150"
+  content="This card has a button that performs an action."
+  buttonText="Click Me"
+  onButtonClick={() => alert("Button clicked!")}
+/>
+```

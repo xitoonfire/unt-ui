@@ -1,0 +1,88 @@
+import { Meta, Story } from "@storybook/addon-docs";
+import Image from "./Image";
+
+<Meta title="Utility/Image" component={Image} />
+
+# Image Component Documentation
+
+## Overview
+
+The `Image` component provides a flexible and customizable way to display images. You can adjust the size, appearance, and additional styles such as borders, shadows, and rounded corners. This component leverages Tailwind CSS for quick styling adjustments.
+
+## Basic Example
+
+```tsx
+import Image from './Image';
+
+function App() {
+  return (
+    <div>
+      <Image
+        src="https://via.placeholder.com/150"
+        alt="Placeholder Image"
+        width="150"
+        height="150"
+      />
+    </div>
+  );
+}
+
+export default App;
+```
+
+This example displays a simple image with a specified width and height.
+
+## Image Properties
+
+The `Image` component accepts the following props:
+
+- **src**: The source URL of the image (required).
+- **alt**: The alt text for the image (required).
+- **width**: The width of the image. Can be set to any valid CSS value (default is 'auto').
+- **height**: The height of the image. Can be set to any valid CSS value (default is 'auto').
+- **rounded**: If set to true, the image will have rounded corners. Default is false.
+- **shadow**: If set to true, the image will have a shadow effect. Default is false.
+- **border**: If set to true, the image will have a border. Default is false.
+- **className**: Additional custom classes to apply to the image.
+
+## Example with Custom Styles
+
+```tsx
+import Image from './Image';
+
+function App() {
+  return (
+    <div>
+      <Image
+        src="https://via.placeholder.com/300"
+        alt="Placeholder Image"
+        width="300"
+        height="300"
+        rounded
+        shadow
+        border
+        className="mt-4"
+      />
+    </div>
+  );
+}
+
+export default App;
+```
+
+In this example, the `Image` component is styled with rounded corners, a shadow, and a border, along with some additional margin using the `className` prop.
+
+## Customization
+
+You can customize the appearance of the image using the following props:
+
+- **width**: Set a specific width for the image (e.g., 150px, %, auto).
+- **height**: Set a specific height for the image (e.g., 150px, %, auto).
+- **rounded**: Set to true for rounded corners.
+- **shadow**: Set to true to apply a shadow effect.
+- **border**: Set to true to apply a border around the image.
+- **className**: Add any additional CSS classes to style the image further.
+
+## Notes
+
+> The component supports smooth transitions for visual effects like shadows and borders. Tailwind CSS utilities like `rounded-lg`, `shadow-md`, and `border-gray-300` are used for styling, making it easy to modify the image's appearance with Tailwind's utility-first approach.

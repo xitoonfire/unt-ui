@@ -1,0 +1,103 @@
+import { Meta, Story } from "@storybook/addon-docs";  
+import Navbar from "./Navbar";  
+
+<Meta title="Header/Navbar" component={Navbar} />  
+
+# Navbar Component Documentation  
+
+## Overview  
+
+The `Navbar` component is used to create a navigation bar with a logo and a set of links. It is responsive, displaying the links horizontally on larger screens and as a toggleable dropdown on smaller screens. This component supports custom logos and optional text descriptions.  
+
+## Basic Example  
+
+```tsx  
+import Navbar from './Navbar';  
+
+function App() {  
+  const links = [  
+    { name: 'Home', href: '/' },  
+    { name: 'About', href: '/about' },  
+    { name: 'Contact', href: '/contact' },  
+  ];  
+
+  return (  
+    <div>  
+      <Navbar links={links} logoSrc="/logo.png" />  
+    </div>  
+  );  
+}  
+
+export default App;  
+```  
+
+This example demonstrates the basic usage of the Navbar component with a logo and links.  
+
+## Navbar Properties  
+
+The Navbar component accepts the following props:  
+
+- `links` (`{ name: string; href: string }[]`): An array of objects representing the links in the navbar (required).  
+- `logoSrc` (string): The source URL for the logo image (required).  
+- `altText` (string): Optional text to describe the logo for accessibility. Defaults to 'Logo'.  
+- `className` (string): Custom class names to apply additional styling to the entire navbar.  
+
+## Example with Custom Logo and Links  
+
+```tsx  
+import Navbar from './Navbar';  
+
+function App() {  
+  const links = [  
+    { name: 'Home', href: '/' },  
+    { name: 'Services', href: '/services' },  
+    { name: 'Contact', href: '/contact' },  
+  ];  
+
+  return (  
+    <div>  
+      <Navbar  
+        links={links}  
+        logoSrc="/custom-logo.png"  
+        altText="Custom Logo"  
+        className="bg-gray-900"  
+      />  
+    </div>  
+  );  
+}  
+
+export default App;  
+```  
+
+In this example, a custom logo and links are passed as props, and an additional background color is added to the navbar using the className prop.  
+
+## Responsive Design  
+
+The Navbar component is fully responsive. On larger screens (medium and above), the links are displayed in a horizontal row. On smaller screens, a hamburger menu is displayed, and the links can be toggled open or closed.  
+
+### Mobile View  
+
+On smaller screens, the links are hidden by default. When the menu button is clicked, the links appear in a vertical list:  
+
+```tsx  
+<button onClick={() => setIsOpen(!isOpen)} className="text-white">  
+  {isOpen ? 'Close' : 'Menu'}  
+</button>  
+```  
+
+The `isOpen` state controls whether the mobile menu is shown or hidden.  
+
+## Customization  
+
+The Navbar component can be customized in the following ways:  
+
+- `links`: An array of objects representing the navigation links. Each object must contain a name (link text) and a href (link URL).  
+- `logoSrc`: The source URL for the logo image.  
+- `altText`: A description of the logo for accessibility purposes. Defaults to 'Logo'.  
+- `className`: Use this to apply additional styles or override default styles with Tailwind classes.  
+
+## Notes  
+
+- The navbar is designed to be fully responsive, with a mobile-friendly dropdown for smaller screens.  
+- The `className` prop allows you to customize the appearance of the navbar, such as background color, padding, and spacing.  
+- The `isOpen` state is used to control the visibility of the dropdown menu on mobile screens. This state is toggled when the menu button is clicked.  

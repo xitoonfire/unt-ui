@@ -1,0 +1,80 @@
+import { Meta, Story } from "@storybook/addon-docs";
+import CheckboxGroup from "./Groupedcheckbox";
+
+<Meta title="Components/CheckboxGroup" component={CheckboxGroup} />
+
+# Checkbox Group Component Documentation
+
+## Overview
+
+The `CheckboxGroup` component is used to group multiple checkboxes together, allowing users to select multiple options at once. It uses the `Checkbox` component for each individual option and handles the selection state and changes for all checkboxes in the group. It is useful for situations where users need to select multiple items, such as preferences or settings.
+
+## Basic Example
+
+```tsx
+import React, { useState } from 'react';
+import CheckboxGroup from './CheckboxGroup';
+
+function App() {
+  const [selectedCheckboxes, setSelectedCheckboxes] = useState<string[]>([]);
+
+  const handleCheckboxChange = (id: string) => {
+    setSelectedCheckboxes(prevState => {
+      if (prevState.includes(id)) {
+        return prevState.filter(item => item !== id);
+      } else {
+        return [...prevState, id];
+      }
+    });
+  };
+
+  const checkboxes = [
+    { id: 'checkbox1', label: 'Option 1', checked: selectedCheckboxes.includes('checkbox1') },
+    { id: 'checkbox2', label: 'Option 2', checked: selectedCheckboxes.includes('checkbox2') },
+    { id: 'checkbox3', label: 'Option 3', checked: selectedCheckboxes.includes('checkbox3') },
+  ];
+
+  return (
+    <div>
+      <CheckboxGroup checkboxes={checkboxes} onChange={handleCheckboxChange} />
+    </div>
+  );
+}
+
+export default App;
+```
+
+## CheckboxGroup Properties
+
+The CheckboxGroup component accepts the following props:
+
+- `checkboxes`: An array of objects, each representing a checkbox with the following properties:
+  - `id`: The unique identifier for the checkbox.
+  - `label`: The label text for the checkbox.
+  - `checked`: A boolean indicating whether the checkbox is checked.
+  - `disabled`: (Optional) A boolean to disable the checkbox.
+  - `onChange`: A function that is called when a checkbox is toggled. It receives the id of the checkbox as an argument.
+
+```tsx
+const checkboxes = [
+  { id: 'checkbox1', label: 'Option 1', checked: selectedCheckboxes.includes('checkbox1') },
+  { id: 'checkbox2', label: 'Option 2', checked: selectedCheckboxes.includes('checkbox2') },
+  { id: 'checkbox3', label: 'Option 3', checked: selectedCheckboxes.includes('checkbox3') },
+];
+
+<CheckboxGroup checkboxes={checkboxes} onChange={handleCheckboxChange} />
+```
+
+## Disabled State
+
+Each checkbox within the group can be disabled individually by passing the disabled prop:
+
+```tsx
+const checkboxes = [
+  { id: 'checkbox1', label: 'Option 1', checked: selectedCheckboxes.includes('checkbox1') },
+  { id: 'checkbox2', label: 'Option 2', checked: selectedCheckboxes.includes('checkbox2'), disabled: true },
+  { id: 'checkbox3', label: 'Option 3', checked: selectedCheckboxes.includes('checkbox3') },
+];
+
+<CheckboxGroup checkboxes={checkboxes} onChange={handleCheckboxChange} />
+```
